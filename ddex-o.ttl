@@ -1,0 +1,36 @@
+@prefix ddex: <https://openmusic.eu/ontology/ddex#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix mo: <http://purl.org/ontology/mo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://openmusic.eu/ontology/ddex>
+  a owl:Ontology ;
+dcterms:title "Minimal DDEX Ontology Subset"@en ;
+dcterms:creator "Open Music Europe / SKCMDb" ;
+dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+dcterms:created "2025-11-06"^^xsd:date .
+
+ddex:Recording a owl:Class ;
+rdfs:label "Recording"@en ;
+rdfs:comment "A sound recording, as defined by DDEX, equivalent to mo:Track and dcterms:Sound."@en ;
+owl:equivalentClass mo:Track ;
+rdfs:isDefinedBy <https://openmusic.eu/ontology/ddex> .
+
+ddex:ContributorRole a owl:Class ;
+rdfs:label "Contributor Role"@en ;
+rdfs:comment "A role performed by a person or organisation in the creation or distribution of a recording."@en ;
+rdfs:isDefinedBy <https://openmusic.eu/ontology/ddex> .
+
+ddex:featuredArtist a owl:Class ;
+rdfs:subClassOf ddex:ContributorRole ;
+rdfs:label "Featured Artist"@en ;
+rdfs:comment "A performer prominently credited on the recording."@en .
+
+ddex:hasISRC a owl:DatatypeProperty ;
+rdfs:label "has ISRC"@en ;
+rdfs:comment "Links a recording to its International Standard Recording Code (ISRC)."@en ;
+rdfs:domain ddex:Recording ;
+rdfs:range xsd:string ;
+rdfs:isDefinedBy <https://openmusic.eu/ontology/ddex> .
